@@ -1,0 +1,25 @@
+﻿@model Make
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<br></br>
+
+<h2 class="text-info"> Add Make of Vehicle </h2>
+
+<form method="post" action="Create">
+    <div class="input-group row">
+        <div class="col-1">
+           <label asp-for="Name"></label>
+        </div>
+        <div class="col-4">
+             <input asp-for="Name" class="form-control" />
+        </div>
+
+        <div class=" col" >
+            <input type="submit" class="btn btn-primary" value="Create" />
+            <a asp-controller="Make" asp-action="Bikes" class="btn btn-success">Back</a>
+        </div>
+    </div>
+</form>

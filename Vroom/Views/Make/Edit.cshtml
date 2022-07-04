@@ -1,0 +1,25 @@
+﻿@model Make
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<br></br>
+
+<h2 class="text-info"> Edit Make of Vehicle </h2>
+
+<form method="post" action="Edit">
+    <div class="input-group row">
+        <div class="col-1">
+           <label asp-for="Name"></label>
+        </div>
+        <div class="col-4">
+             <input asp-for="Name" class="input-group" />
+        </div>
+
+        <div class=" col" >
+            <input type="submit" class="btn btn-primary" asp-route-id="@Model.Id" value="Update" />
+            <a asp-action="Index" class="btn btn-success">Back</a>
+        </div>
+    </div>
+</form>

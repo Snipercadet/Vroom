@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Vroom.Models.Model>
+
+    @{
+        ViewData["Title"] = "Models for bikes";
+    }
+
+      <br></br>
+     <div class="row">
+         <div class="col-6">
+             <h2 class="text-info">Models of Vehicle</h2>
+         </div>
+         <div class="col-6 text-end">
+             <a class="btn btn-info" asp-action="Create">Add New Model</a>
+         </div>
+       
+          <br></br>
+
+     <div class="col-12">
+         <table class="table table-striped border">
+             <thead>
+                 <tr class="table-info">
+                     <th>@Html.DisplayNameFor(model => model.Make)</th>
+                     <th>@Html.DisplayNameFor(model => model.Name)</th>
+                     <th></th>
+                 </tr>
+             </thead>
+             <tbody>
+                 @foreach (var item in Model)
+                 {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(m=>item.Make.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(m=>item.Name)
+                        </td>
+                        <td class="text-end">
+                            <div class="btn-group rounded-0">
+                                <form method="post" asp-action="Edit" >
+                                    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                                </form>
+                                <form method="post" asp-action="Delete">
+                                    <input onclick="if (!confirm('Are You Sure You Want to Delete This Make')) {return false }" type="submit" class="btn btn-danger rounded-0" asp-action="Delete" asp-route-id="@item.Id" value="Delete" />
+                                </form> 
+                            </div>
+                        </td>
+                    </tr>
+                     
+                 }
+             </tbody>
+         </table>
+
+     </div>
+     </div>
+
